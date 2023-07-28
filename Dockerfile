@@ -18,7 +18,11 @@ EOF
 
 # Install support packages
 RUN ${WEBR_ROOT}/host/R-$(cat ${WEBR_ROOT}/R/R-VERSION)/bin/R \
-  -e 'install.packages(c("rlang", "pkgdepends"))'
+  -e 'install.packages(c("rlang", "pkgdepends", "zip", "pak"))'
+
+# Install patched Matrix package
+RUN ${WEBR_ROOT}/host/R-$(cat ${WEBR_ROOT}/R/R-VERSION)/bin/R \
+  -e 'pak::pkg_install("r-wasm/Matrix@webr")'
 
 # Download webr-repo
 ARG WEBR_REPO_VERSION=main

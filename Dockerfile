@@ -45,6 +45,7 @@ RUN ${WEBR_ROOT}/host/R-$(cat ${WEBR_ROOT}/R/R-VERSION)/bin/R \
 
 # Download webr-repo
 ARG WEBR_REPO_VERSION=main
+ADD "https://api.github.com/repos/r-wasm/webr-repo/commits?sha=${WEBR_REPO_VERSION}&per_page=1" latest_commit
 RUN git clone --depth 1 --branch ${WEBR_REPO_VERSION} \
   https://github.com/r-wasm/webr-repo.git /opt/webr-repo
 

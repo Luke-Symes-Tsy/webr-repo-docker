@@ -36,7 +36,7 @@ EOF
 
 # Install support packages
 RUN ${WEBR_ROOT}/host/R-$(cat ${WEBR_ROOT}/R/R-VERSION)/bin/R \
-  -e 'install.packages(c("rlang", "pkgdepends", "zip", "pak"), \
+  -e 'install.packages(c("rlang", "pkgdepends", "zip", "pak", "withr"), \
   repos=options("host_binary_repo"))'
 
 # Install patched Matrix package

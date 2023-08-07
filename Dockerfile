@@ -41,7 +41,7 @@ RUN ${WEBR_ROOT}/host/R-$(cat ${WEBR_ROOT}/R/R-VERSION)/bin/R \
 
 # Install patched Matrix package
 RUN ${WEBR_ROOT}/host/R-$(cat ${WEBR_ROOT}/R/R-VERSION)/bin/R \
-  -e 'pak::pkg_install("r-wasm/Matrix@webr-0.2.0")'
+  -e 'pak::pkg_install("r-wasm/Matrix@webr-matrix-1.6-0")'
 
 # Download webr-repo
 ARG WEBR_REPO_VERSION=main

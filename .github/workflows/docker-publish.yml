@@ -35,6 +35,9 @@ jobs:
 
     steps:
       - 
+        name: Install curl build dependency
+        run: sudo apt-get install libcurl4-openssl-dev
+      - 
         name: Free disk space
         run: |
           sudo docker rmi $(docker image ls -aq) || true
